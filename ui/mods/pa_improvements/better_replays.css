@@ -1,0 +1,55 @@
+
+
+
+#system-search {
+  color:lime !important;
+}
+
+#searchContainer {
+  width: 100%;
+  max-height: 100%;
+  padding-top: 4px;
+  margin-bottom: 10px;
+  box-shadow:0px 0px 5px #000;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  color: #00B3FF;
+  text-shadow: 0px 0px 10px #00B3FF;
+  border: 1px solid #1e7aa1;
+  padding: 8px;
+}
+
+#checkbox-container{
+  font-size: 14px;
+  text-align: left;
+  align-items: left;
+  word-wrap: normal;
+  color: #00B3FF;
+  text-shadow: 0px 0px 10px #00B3FF;
+}
+
+#planetBiomes{
+  width: 80px;
+  padding: 0px;
+  color: #00ff62;
+  text-shadow: 0px 0px 10px #00ff15;
+  margin-right:5px;
+}
+
+#numberInput{
+  color: #00ff62;
+  text-shadow: 0px 0px 10px #00ff15;
+  width: 40px;
+  padding: 0px;
+  margin-right:5px;
+}
+
+#game-difficulty-label{
+  color: #00B3FF;
+  text-shadow: 0px 0px 10px #00B3FF;
+}
+
+#recent-check{
+  margin-left: 70px;
+}

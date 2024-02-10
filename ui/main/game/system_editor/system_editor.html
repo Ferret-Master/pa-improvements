@@ -398,6 +398,19 @@
                                 </div>
                                 <div class="div_adv_edit_mode_ctrls" data-bind="visible:api.terrain_editor.editingTerrain()">
                                     <div style="display: flex;">
+                                <div class="div_planet_info_square">
+                                    <div class="title">
+                                        <loc>Height Adjustments</loc>
+                                    </div>
+                                    <div class="count">
+                                        <span class="div_planet_info_label"><loc>Adjustments:</loc> </span><span data-bind="text: heightAdjustmentCount">000</span>
+                                    </div>
+                                    <div class="btn_toggle" data-bind="css: { live: editingHeightAdjustments(), btn_toggle_disabled: advancedLandingZonesDisabled }, click: toggleEditingHeightAdjustments">
+                                        <div class="btn_std_label btn_toggle_label">
+                                            <loc>Edit</loc>
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                                 </div>
                                 <div class="div_planet_info" style="border: 0">
@@ -594,6 +607,98 @@
                                                 <div class="div_planet_landing_location_col">
                                                     <input disabled type="number" data-bind="value: z"/>
                                                 </div>
+                                            </div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="div_planet_info div_advanced_height_adjustments" style="display: none" data-bind="visible: editingHeightAdjustments()">
+                                    <div class="div_planet_info_title">
+                                        <loc>Height Adjustment Status</loc>
+                                    </div>
+                                    <div class="div_settings_control_input" style="margin: 0px; display: block;">
+                                        <label style="margin: 0px 0px 10px 0px;">
+                                            <input type="checkbox" data-bind="checked: landingZoneSizeIsAuto" />
+                                            <loc>will display warning if there is a saved height adjustment without planet refresh</loc>
+                                        </label>
+                                      
+                                    </div>
+                                    <div class="div_planet_info_title">
+                                        <loc>Height Adjustment Parameters</loc>
+                                    </div>
+                                    <div class="div_planet_height_adjustment">
+                                        <div class="div_planet_height_adjustment_row">
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <span class="div_planet_info_label"><loc>Adjustment</loc> </span>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <span class="div_planet_info_label"><loc>Normalized Adjustment</loc> </span>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <span class="div_planet_info_label"><loc>Radius</loc> </span>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_location_col">
+                                                <span class="div_planet_info_label"><loc>X</loc> </span>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_location_col">
+                                                <span class="div_planet_info_label"><loc>Y</loc> </span>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_location_col">
+                                                <span class="div_planet_info_label"><loc>Z</loc> </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="div_planet_height_adjustment_row">
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <input type="number" data-bind="value: adjustmentValue"/>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <input type="number" data-bind="value: normalizedAdjustmentValue"/>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <input type="number" data-bind="value: adjustmentRadius"/>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <input type="number" data-bind="value: adjustmentPosX"/>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <input type="number" data-bind="value: adjustmentPosY"/>
+                                            </div>
+                                            <div class="div_planet_height_adjustment_rule_col">
+                                                <input type="number" data-bind="value: adjustmentPosZ"/>
+                                            </div>
+                                        </div>
+                                        <div class="div_planet_height_adjustment_row">
+                                        <a class = "div_add_adjustment" data-bind="click_sound: 'default', rollover_sound: 'default'">
+                                            <input type="button" value="ADD HEIGHT ADJUSTMENT" id="Button5" class="btn_std btn_panel" style="float: right;" data-bind="click: createNewHeightAdjustment" />
+                                        </a>
+                                        <a class = "div_add_adjustment" data-bind="click_sound: 'default', rollover_sound: 'default'">
+                                            <input type="button" value="APPLY ADJUSTMENTS" id="Button5" class="btn_std btn_panel" style="float: right;" data-bind="click: applyHeightAdjustments" />
+                                        </a>
+                                        </div>
+                                        <div id="div_planet_height_adjustment_list">
+                                            <!-- ko foreach: heightAdjustments -->
+                                            <div class="div_planet_height_adjustment_row" data-bind="click: $root.handleHeightAdjustmentsClick">
+                                                <div class="div_planet_height_adjustment_location_col">
+                                                    <input disabled type="number" data-bind="value: adjustment"/>
+                                                </div>
+                                                <div class="div_planet_height_adjustment_location_col">
+                                                    <input disabled type="number" data-bind="value: normalizedAdjustment"/>
+                                                </div>
+                                                <div class="div_planet_height_adjustment_location_col">
+                                                    <input disabled type="number" data-bind="value: radius"/>
+                                                </div>
+                                                <div class="div_planet_height_adjustment_location_col">
+                                                    <input disabled type="number" data-bind="value: pos[0]"/>
+                                                </div>
+                                                <div class="div_planet_height_adjustment_location_col">
+                                                    <input disabled type="number" data-bind="value: pos[1]"/>
+                                                </div>
+                                                <div class="div_planet_height_adjustment_location_col">
+                                                    <input disabled type="number" data-bind="value: pos[2]"/>
+                                                </div>
+                                               
                                             </div>
                                             <!-- /ko -->
                                         </div>

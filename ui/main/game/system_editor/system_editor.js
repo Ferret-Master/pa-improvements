@@ -763,6 +763,46 @@ require(["api"], function (api) {
             0;
     });
 
+   
+
+    self.editingHeightAdjustments = ko.observable(false);
+
+    self.adjustmentValue = ko.observable(0).extend({ precision: 3 });
+    self.normalizedAdjustmentValue = ko.observable(0).extend({ precision: 3 });
+    self.adjustmentRadius = ko.observable(0).extend({ precision: 1 });
+    self.adjustmentPosX = ko.observable(0).extend({ precision: 4 });
+    self.adjustmentPosY = ko.observable(0).extend({ precision: 4 });
+    self.adjustmentPosZ = ko.observable(0).extend({ precision: 4 });
+
+    self.heightAdjustmentCount = ko.observable(0);
+
+    self.toggleEditingHeightAdjustments = function(){
+      self.editingHeightAdjustments(!self.editingHeightAdjustments())
+      self.heightAdjustmentCount(model.planetSpec().planet.heightAdjustments.length)
+    }
+
+    self.applyHeightAdjustments = function(){
+      model.updateSelectedPlanet(model.planetSpec(), true)
+    }
+
+    self.createNewHeightAdjustment = function(){
+      var adjustmentObject = {};
+      adjustmentObject.adjustment = self.adjustmentValue();
+      adjustmentObject.normalizedAdjustment = self.normalizedAdjustmentValue();
+      if(adjustmentObject.normalizedAdjustment>1){adjustmentObject.normalizedAdjustment = 1}
+      adjustmentObject.pos = [self.adjustmentPosX(), self.adjustmentPosY(), self.adjustmentPosZ()];
+      adjustmentObject.radius = self.adjustmentRadius();
+      self.heightAdjustments().push(adjustmentObject);
+      self.heightAdjustmentCount(model.planetSpec().planet.heightAdjustments.length)
+    }
+
+    self.handleHeightAdjustmentsClick = function (data) {
+      console.log(data)
+      var target = { location: { x: data.pos[0], y: data.pos[1], z: data.pos[2] } };
+      api.camera.lookAt(target, true);
+    };
+    
+
     self.selectedPlanetIsCustom = ko.computed(function () {
       return (
         self.isAdvancedEditing() ||
