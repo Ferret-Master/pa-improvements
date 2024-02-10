@@ -10,7 +10,7 @@
   "signature": "not yet implemented",
   "forum":"",
   "priority": 100,
-  "icon": "https://github.com/ferret-Master/system_search_bar/blob/main/icon.png?raw=true",
+  "icon": "https://github.com/Ferret-Master/pa-improvements/blob/main/icon.jpg?raw=true",
   "scenes": {
     "start": [
       "coui://ui/mods/pa_improvements/start.js"
