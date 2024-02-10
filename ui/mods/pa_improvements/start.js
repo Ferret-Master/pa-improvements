@@ -1,0 +1,1 @@
+$("#nav-games-browser").remove()

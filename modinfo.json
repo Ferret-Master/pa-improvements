@@ -1,0 +1,29 @@
+{
+  "context": "client",
+  "identifier": "com.pa.ferretmaster.pa-improvements",
+  "display_name": "Pa Improvements",
+  "description": "Adds various improvements/fixes to the base game ui",
+  "author": "Ferretmaster",
+  "version": "1.00",
+  "build": "116982",
+  "date": "2024-02-10",
+  "signature": "not yet implemented",
+  "forum":"",
+  "priority": 100,
+  "icon": "https://github.com/ferret-Master/system_search_bar/blob/main/icon.png?raw=true",
+  "scenes": {
+    "start": [
+      "coui://ui/mods/pa_improvements/start.js"
+    ],
+    "live_game": [
+      "coui://ui/mods/pa_improvements/player_planet.js"
+    ],
+    "server_browser": [
+      "coui://ui/mods/pa_improvements/lobby_browser.js"
+    ]
+  },
+  "searchable": [
+    "ui"
+],
+  "category": ["ui","titans", "in-game"]
+}
