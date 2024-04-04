@@ -449,7 +449,6 @@ require(["api"], function (api) {
       fullBrushListPromise.then(function(fullBrushList){
         UberUtility.waitForAll(_.map(brush_groups_biomes, process)).then(
           function (list) {
-            console.log(list)
            
             var result = {};
 
@@ -494,7 +493,6 @@ require(["api"], function (api) {
               }
 
             })
-            console.log(list)
           
             var process = function (element) {
               /* brushes are added to layer zero to indicate a WIP. they should not be used. */
